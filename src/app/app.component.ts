@@ -14,12 +14,11 @@ export interface Post {
 export class AppComponent {
   posts: Post[] = [
     {title: 'I want to learn Angular', text: 'i still learn components', id: 1},
-    {title: 'second block', text: 'will derectives', id: 2},
+    // {title: 'second block', text: 'will derectives', id: 2},
   ]
 
   updatePosts(post: Post) {
-    this.posts.unshift(post)
     console.log('Post', post)
+    this.posts.unshift(post)
   }
-
 }
