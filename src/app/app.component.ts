@@ -25,8 +25,7 @@ ngOnInit(): void {
 }
 
   updatePosts(post: Post) {
-    this.posts.unshift(post)
     console.log('Post', post)
+    this.posts.unshift(post)
   }
-
 }
