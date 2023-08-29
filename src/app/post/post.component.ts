@@ -1,17 +1,30 @@
-import { AfterContentInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  DoCheck,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+  ViewEncapsulation
+} from '@angular/core';
 import { Post } from '../app.component';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class PostComponent implements
   OnInit,
   OnChanges,
   DoCheck,
-  AfterContentInit
-{
+  AfterContentInit {
 
 
   @Input()
