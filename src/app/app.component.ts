@@ -6,5 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  isVisible = true
+  e: number = Math.E
+  str = 'hello world'
+  slice = '0123456789'
+  date: Date = new Date();
+  float = 0.42
+
+  obj = {
+    a: 1,
+    b: {
+      c: 2,
+      d: {
+        e: 3,
+        f: 4
+      }
+    }
+  }
 }
