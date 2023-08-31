@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface Post {
+  title: string
+  text: string
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,4 +27,21 @@ export class AppComponent {
       }
     }
   }
+
+  search = ''
+  searchField = 'title'
+
+  posts: Post[] = [
+    {title: 'Beer', text: 'Самое лучшее пиво в мире'},
+    {title: 'Bread', text: 'The best bread'},
+    {title: 'Javascript', text: 'The best language'}
+  ]
+
+  addPost() {
+    this.posts.unshift({
+       title: 'Angular',
+       text: 'Vladilen Angular course'
+    })
+  }
+
 }
