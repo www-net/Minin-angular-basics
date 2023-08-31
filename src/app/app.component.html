@@ -55,7 +55,8 @@
       <p>{{'Hello World ' | exMarks}}</p>
     </div> -->
 
-    <div>
+    <hr>
+    <!-- <div>
 
       <button class="btn" (click)="searchField = 'title'">Title</button>
       <button class="btn" (click)="searchField = 'text'">Text</button>
@@ -70,7 +71,21 @@
         <h2>{{post.title}}</h2>
         <p>{{post.text}}</p>
       </div>
-    </div>
+    </div> -->
   </div>
+
+  <div>
+    <h2>Async</h2>
+
+    <p>Wait for it... {{p | async}} </p>
+
+    <!--  Вариант с использованием пайпа async -->
+    <p>Date: {{ date$ | async | date: 'HH:mm:ss yyyy'}}</p>
+
+    <!-- Вариант без использования пайпа async  -->
+    <p> {{date | date:'HH:mm:ss'}} </p>
+
+  </div>
+
 
 </div>

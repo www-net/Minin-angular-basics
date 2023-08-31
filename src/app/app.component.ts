@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface Post {
   title: string
@@ -10,38 +11,37 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  e: number = Math.E
-  str = 'hello world'
-  slice = '0123456789'
-  date: Date = new Date();
-  float = 0.42
+export class AppComponent implements OnInit {
 
-  obj = {
-    a: 1,
-    b: {
-      c: 2,
-      d: {
-        e: 3,
-        f: 4
-      }
-    }
-  }
+  p: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve('Promise Resolved')
+    }, 4000)
+  })
 
-  search = ''
-  searchField = 'title'
+  // Вариант с использованием пайпа async
+date$: Observable<Date> = new Observable(obs => {
+  setInterval(() => {
+    obs.next(new Date())
+  }, 1000)
+})
 
-  posts: Post[] = [
-    {title: 'Beer', text: 'Самое лучшее пиво в мире'},
-    {title: 'Bread', text: 'The best bread'},
-    {title: 'Javascript', text: 'The best language'}
-  ]
-
-  addPost() {
-    this.posts.unshift({
-       title: 'Angular',
-       text: 'Vladilen Angular course'
-    })
-  }
+// Вариант исполнения без использования пайпа async
+date: Date
+ngOnInit(): void {
+  this.date$.subscribe(date => {
+    this.date = date
+  })
+}
 
 }
+
+
+
+
+
+
+
+
+
+
